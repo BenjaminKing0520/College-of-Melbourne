@@ -176,7 +176,7 @@ export default function HeroSlider() {
             transition={{ delay: 0.3 }}
             className="mt-3 text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl max-w-full"
           >
-            — Bright future is here —
+            — Bright Future is Here —
           </motion.p>
 
           {/* Apply Now Button */}
