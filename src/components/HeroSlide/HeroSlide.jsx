@@ -95,17 +95,17 @@ export default function HeroSlider() {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
-      {/* 💧 Water Bubble Effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* 💧 Water Bubble Effect - ABOVE overlay */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
         {[...Array(14)].map((_, i) => (
           <motion.span
             key={i}
-            className="absolute rounded-full border border-white/40"
+            className="absolute rounded-full border border-white/40 bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.2)]"
             style={{
-              width: `${10 + i * 2}px`,
-              height: `${10 + i * 2}px`,
+              width: `${8 + i * 2}px`,
+              height: `${8 + i * 2}px`,
               left: `${Math.random() * 100}%`,
               bottom: `-100px`,
             }}
@@ -121,7 +121,7 @@ export default function HeroSlider() {
       </div>
 
       {/* 🫧 Glass Content Card - Left Aligned */}
-      <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 md:px-10 lg:px-16">
+      <div className="relative z-30 h-full flex items-center justify-start px-4 sm:px-6 md:px-10 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +210,7 @@ export default function HeroSlider() {
 
       {/* 🔽 Swipe Down Indicator */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 cursor-pointer"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{
           duration: 1.5,
