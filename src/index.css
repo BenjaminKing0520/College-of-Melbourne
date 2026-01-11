@@ -7,9 +7,16 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-.animate-gradient {
-  background-size: 300% 100%;
-  animation: gradientShift 8s ease infinite;
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+
+
 
