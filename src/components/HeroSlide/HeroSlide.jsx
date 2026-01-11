@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // TrueFocus Component
 const TrueFocus = ({
@@ -23,7 +24,6 @@ const TrueFocus = ({
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % words.length);
     }, (animationDuration + pauseBetweenAnimations) * 1000);
-
     return () => clearInterval(interval);
   }, [words.length, animationDuration, pauseBetweenAnimations]);
 
@@ -52,8 +52,7 @@ const TrueFocus = ({
           <span
             key={idx}
             ref={(el) => (wordRefs.current[idx] = el)}
-            className="relative font-extrabold text-white
-              text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+            className="relative font-extrabold text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl"
             style={{
               filter: isActive ? "blur(0px)" : `blur(${blurAmount}px)`,
               transition: `filter ${animationDuration}s ease`,
@@ -85,7 +84,7 @@ export default function HeroSlider() {
   const bgY = useTransform(scrollY, [0, 300], ["0%", "15%"]);
 
   return (
-    <div className="relative w-full h-[90vh] md:h-[85vh] lg:h-[90vh] overflow-hidden">
+    <div className="relative w-full h-[85vh] sm:h-[90vh] md:h-[95vh] lg:h-[90vh] overflow-hidden">
       {/* 🌊 Parallax Background */}
       <motion.img
         src="/Carousel-1.jpg"
@@ -97,47 +96,37 @@ export default function HeroSlider() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10" />
 
-      {/* 💧 Water Bubble Effect - ABOVE overlay */}
+      {/* 💧 Water Bubble Effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
         {[...Array(14)].map((_, i) => (
           <motion.span
             key={i}
             className="absolute rounded-full border border-white/40 bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.2)]"
             style={{
-              width: `${8 + i * 2}px`,
-              height: `${8 + i * 2}px`,
+              width: `${4 + i * 2}px`,
+              height: `${4 + i * 2}px`,
               left: `${Math.random() * 100}%`,
               bottom: `-100px`,
             }}
             animate={{ y: [-50, -1000], opacity: [0, 0.6, 0] }}
             transition={{
-              duration: 8 + i,
+              duration: 6 + i,
               repeat: Infinity,
-              delay: i * 0.5,
+              delay: i * 0.3,
               ease: "easeOut",
             }}
           />
         ))}
       </div>
 
-      {/* 🫧 Glass Content Card - Left Aligned */}
+      {/* 🫧 Glass Content Card */}
       <div className="relative z-30 h-full flex items-center justify-start px-4 sm:px-6 md:px-10 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="
-            backdrop-blur-xl
-            bg-white/10
-            border border-white/20
-            rounded-2xl
-            max-w-full
-            sm:max-w-md
-            md:max-w-lg
-            lg:max-w-xl
-            p-4 sm:p-6 md:p-8 lg:p-10
-          "
+          className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl max-w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl p-4 sm:p-6 md:p-8 lg:p-10"
         >
           {/* Accent Line */}
           <motion.div
@@ -145,7 +134,7 @@ export default function HeroSlider() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-16 sm:w-20 h-1 bg-gradient-to-r from-red-600 to-yellow-500 mb-4 origin-left"
+            className="w-12 sm:w-16 md:w-20 h-1 bg-gradient-to-r from-red-600 to-yellow-500 mb-4 origin-left"
           />
 
           {/* Heading with TrueFocus */}
@@ -156,7 +145,7 @@ export default function HeroSlider() {
             transition={{ duration: 1 }}
           >
             <div className="text-left">
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-extrabold text-white">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold text-white">
                 The Right Pathway <br />
                 <TrueFocus
                   sentence="Your Future Dream"
@@ -174,37 +163,29 @@ export default function HeroSlider() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="mt-3 text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl max-w-full"
+            className="mt-3 text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl max-w-full"
           >
             — Bright Future is Here —
           </motion.p>
 
-          {/* Apply Now Button */}
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 0px 20px rgba(255,0,0,0.6)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="
-              mt-4 sm:mt-5 md:mt-6
-              px-4 sm:px-5 md:px-6
-              py-2 sm:py-2.5 md:py-3
-              rounded-full
-              font-bold
-              text-white
-              bg-gradient-to-r from-red-600 via-pink-600 to-orange-500
-              hover:from-orange-500 hover:to-red-600
-              transition-all duration-500
-              text-sm sm:text-base md:text-lg
-            "
-          >
-            Apply Now
-          </motion.button>
+          {/* ✅ Apply Now Button */}
+          <Link to="/apply-now">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 0px 15px rgba(223,17,17,0.6)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-4 sm:mt-5 md:mt-6 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-2.5 md:py-3 rounded-full font-medium tracking-wide shadow-md transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
+              style={{ backgroundColor: "#df1111", color: "#F5F5F5" }}
+            >
+              Apply Now →
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
 
@@ -212,24 +193,16 @@ export default function HeroSlider() {
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="w-6 sm:w-7 h-10 sm:h-12 rounded-full border-2 border-white/70 flex justify-center">
+        <div className="w-4 sm:w-5 md:w-6 h-8 sm:h-10 md:h-12 rounded-full border-2 border-white/70 flex justify-center">
           <motion.span
-            className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white rounded-full mt-2"
+            className="w-1 h-1 sm:w-1.5 md:w-2 bg-white rounded-full mt-2"
             animate={{ y: [0, 18, 0], opacity: [1, 0.3, 1] }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
-        <span className="text-[10px] sm:text-xs tracking-widest text-white/80 uppercase">
+        <span className="text-[8px] sm:text-[10px] md:text-xs tracking-widest text-white/80 uppercase">
           Swipe
         </span>
       </motion.div>
