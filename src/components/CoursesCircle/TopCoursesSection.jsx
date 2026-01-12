@@ -7,39 +7,39 @@ const DARK = "#353535";
 const courses = [
   {
     id: 1,
-    title: "Foundation in IT",
+    title: "Foundation Courses",
     category: "Foundation",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    image: "/portfolio-1.jpg",
   },
   {
     id: 2,
-    title: "Certificate in Business",
+    title: "Professional Certificate Courses",
     category: "Certificate",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    image: "/portfolio-2.jpg",
   },
   {
     id: 3,
-    title: "Diploma in Software",
+    title: "Diploma Courses",
     category: "Diploma",
-    image: "https://images.unsplash.com/photo-1581091012184-5c8c39d2b8b0",
+    image: "portfolio-3.jpg",
   },
   {
     id: 4,
-    title: "HND in Computing",
+    title: "Higher National Diploma Programs",
     category: "HND",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
+    image: "portfolio-4.jpg",
   },
   {
     id: 5,
-    title: "Degree in IT",
+    title: "Degree Programs",
     category: "Degree",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7",
+    image: "portfolio-6.jpg",
   },
   {
     id: 6,
-    title: "Masters in Data Science",
+    title: "Master's Programs",
     category: "Masters",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+    image: "portfolio-6.jpg",
   },
 ];
 
@@ -57,58 +57,66 @@ export default function CircularCoursesBox() {
   const [active, setActive] = useState("All");
   const [rotation, setRotation] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-
   const startX = useRef(0);
+
+  const containerRef = useRef(null);
+  const [radius, setRadius] = useState(200);
+  const [cardSize, setCardSize] = useState({ width: 150, height: 200 });
+
+  // Adjust radius & card size on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      const width = containerRef.current?.offsetWidth || 600;
+      setRadius(width / 2.4); // radius ~40% of container
+      setCardSize({
+        width: Math.max(120, width / 4),
+        height: Math.max(160, width / 3),
+      });
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const filtered =
     active === "All" ? courses : courses.filter((c) => c.category === active);
-  const radius = 190;
 
-  /* 🔄 AUTO ROTATE */
+  // Auto-rotate
   useEffect(() => {
     if (isDragging) return;
-    const interval = setInterval(() => {
-      setRotation((r) => r + 0.15);
-    }, 30);
+    const interval = setInterval(() => setRotation((r) => r + 0.15), 30);
     return () => clearInterval(interval);
   }, [isDragging]);
 
-  /* 🖱️ DRAG HANDLERS */
   const onMouseDown = (e) => {
     setIsDragging(true);
     startX.current = e.clientX;
   };
-
   const onMouseMove = (e) => {
     if (!isDragging) return;
     const delta = e.clientX - startX.current;
     setRotation((r) => r + delta * 0.2);
     startX.current = e.clientX;
   };
-
   const stopDrag = () => setIsDragging(false);
-
-  /* 📄 CLICK COURSE */
-  const onCourseClick = (course) => {
-    alert(`Open details for: ${course.title}`);
-  };
+  const onCourseClick = (course) => alert(`Open details for: ${course.title}`);
 
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center px-6"
+      className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8"
       style={{ background: DARK, color: LIGHT }}
     >
-      <h2 className="text-4xl font-bold mb-8">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-center">
         Our <span style={{ color: PRIMARY }}>Courses</span>
       </h2>
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-3 mb-12 justify-center">
+      <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12 justify-center">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className="px-5 py-2 rounded-md text-sm font-semibold transition"
+            className="px-4 sm:px-5 py-2 rounded-md text-xs sm:text-sm md:text-sm font-semibold transition"
             style={{
               background: active === cat ? PRIMARY : "#ffffff15",
               color: active === cat ? "#fff" : LIGHT,
@@ -119,9 +127,10 @@ export default function CircularCoursesBox() {
         ))}
       </div>
 
-      {/* Circular Box Cards */}
+      {/* Circular Box */}
       <div
-        className="relative w-[460px] h-[460px] cursor-grab active:cursor-grabbing"
+        ref={containerRef}
+        className="relative w-[90vw] max-w-[600px] aspect-square cursor-grab active:cursor-grabbing"
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={stopDrag}
@@ -142,8 +151,10 @@ export default function CircularCoursesBox() {
             >
               <div
                 onClick={() => onCourseClick(course)}
-                className="w-40 h-48 rounded-lg shadow-xl overflow-hidden cursor-pointer transition-transform group"
+                className="rounded-lg shadow-xl overflow-hidden cursor-pointer transition-transform group"
                 style={{
+                  width: `${cardSize.width}px`,
+                  height: `${cardSize.height}px`,
                   background: LIGHT,
                   color: DARK,
                   border: `2px solid ${PRIMARY}`,
@@ -152,22 +163,23 @@ export default function CircularCoursesBox() {
                 <img
                   src={course.image}
                   alt={course.title}
-                  className="w-full h-28 object-cover"
+                  className={`w-full object-cover`}
+                  style={{ height: `${cardSize.height * 0.6}px` }}
                 />
-
-                <div className="p-3 text-center">
-                  <p className="text-sm font-semibold leading-tight">
+                <div className="p-2 sm:p-3 text-center">
+                  <p className="text-xs sm:text-sm md:text-sm font-semibold leading-tight">
                     {course.title}
                   </p>
-                  <span className="text-xs" style={{ color: PRIMARY }}>
+                  <span
+                    className="text-[10px] sm:text-xs"
+                    style={{ color: PRIMARY }}
+                  >
                     {course.category}
                   </span>
                 </div>
-
-                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
                   <span
-                    className="px-4 py-2 bg-primary text-white text-sm font-bold rounded-md"
+                    className="px-3 sm:px-4 py-1 sm:py-2 bg-primary text-white text-xs sm:text-sm font-bold rounded-md"
                     style={{ background: PRIMARY }}
                   >
                     View Course
@@ -178,11 +190,16 @@ export default function CircularCoursesBox() {
           );
         })}
 
-        {/* Center */}
+        {/* Center Circle */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div
-            className="w-32 h-32 rounded-full flex items-center justify-center font-bold shadow-2xl"
-            style={{ background: PRIMARY, color: "#fff" }}
+            className="rounded-full flex items-center justify-center font-bold shadow-2xl"
+            style={{
+              width: `${Math.max(cardSize.width, cardSize.height) * 1.2}px`,
+              height: `${Math.max(cardSize.width, cardSize.height) * 1.2}px`,
+              background: PRIMARY,
+              color: "#fff",
+            }}
           >
             COURSES
           </div>
