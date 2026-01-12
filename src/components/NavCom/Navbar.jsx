@@ -64,11 +64,11 @@ const Navbar = () => {
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
-                <img
-                  src="/White  Long PNG-01-01.png"
-                  alt="College Logo"
-                  className="h-16 w-auto"
-                />
+              <img
+                src="/Web Logo white-01.png"
+                alt="College Logo"
+                className="h-16 w-auto"
+              />
             </motion.div>
 
             {/* Desktop Links */}
