@@ -67,7 +67,7 @@ const Navbar = () => {
               <img
                 src="/Web Logo white-01.png"
                 alt="College Logo"
-                className="h-16 w-auto"
+                className="h-12 w-auto"
               />
             </motion.div>
 
