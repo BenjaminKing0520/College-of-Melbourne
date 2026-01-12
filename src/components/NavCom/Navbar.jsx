@@ -60,15 +60,18 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <motion.div
-              className="flex-shrink-0 mr-6"
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="flex-shrink-0"
+              whileHover={{ scale: 1.05, rotate: 3 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
-              <img
-                src="/Web Logo white-01.png"
-                alt="College Logo"
-                className="h-12 w-auto"
-              />
+              <Link to="/">
+                {/* Mobile logo bigger (h-16), Desktop normal (md:h-12) */}
+                <img
+                  src="/Web Logo white-01.png"
+                  alt="College Logo"
+                  className="h-16 md:h-12 w-auto"
+                />
+              </Link>
             </motion.div>
 
             {/* Desktop Links */}
@@ -211,6 +214,7 @@ const Navbar = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden bg-gradient-to-r from-[#df1111] via-black to-[#df1111] px-4 pt-2 pb-4 space-y-1 overflow-hidden"
             >
+              {/* Mobile Links */}
               {[
                 { name: "Home", path: "/" },
                 { name: "Student Gallery", path: "/student-gallery" },
