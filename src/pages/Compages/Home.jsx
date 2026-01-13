@@ -3,6 +3,7 @@ import HeroSlider from "../../components/HeroSlide/HeroSlide";
 import OurStrengths from "../../components/OurStrengths/OurStrengths";
 import HomeAbout from "../../components/HomeAbout/HomeAbout";
 import TopCoursesSection from "../../components/CoursesCircle/TopCoursesSection";
+import WhyChooseUs from "../../components/ChooseUs/WhyChooseUs";
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <HeroSlider />
       <OurStrengths />
       <HomeAbout />
-      <TopCoursesSection/>
+      <TopCoursesSection />
+      <WhyChooseUs/>
     </>
   );
 };
