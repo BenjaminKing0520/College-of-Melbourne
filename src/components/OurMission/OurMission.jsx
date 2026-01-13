@@ -4,7 +4,7 @@ import { FaBullseye } from "react-icons/fa";
 
 // Mission text for typewriter
 const missionText =
-  " At College of Melbourne, our mission is to empower students to become leaders, innovators, and critical thinkers who make a difference in the world. We provide a dynamic educational experience that emphasizes creativity, colloboration, and global awareness, preparing graduates to thrive in a rapidly evolving world.";
+  "  At College of Melbourne, our mission is to empower students to become leaders, innovators, and critical thinkers who make a difference in the world. We provide a dynamic educational experience that emphasizes creativity, colloboration, and global awareness, preparing graduates to thrive in a rapidly evolving world.";
 
 // Typewriter effect
 const Typewriter = ({ text }) => {

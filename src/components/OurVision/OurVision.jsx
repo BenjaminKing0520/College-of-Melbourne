@@ -4,7 +4,7 @@ import { FaEye } from "react-icons/fa";
 
 // Vision text for typewriter
 const visionText =
-  " Our vision is to become a global leader in higher education, known for cutting-edge research, innovative teaching, and social impact initiatives. We aim to create diverse community of learners who are equipped to address the world's most pressing challenges with integrity, resilience, and expertise.";
+  "  Our vision is to become a global leader in higher education, known for cutting-edge research, innovative teaching, and social impact initiatives. We aim to create diverse community of learners who are equipped to address the world's most pressing challenges with integrity, resilience, and expertise.";
 
 // Typewriter effect
 const Typewriter = ({ text }) => {
