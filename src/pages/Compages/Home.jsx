@@ -6,6 +6,7 @@ import TopCoursesSection from "../../components/CoursesCircle/TopCoursesSection"
 import WhyChooseUs from "../../components/ChooseUs/WhyChooseUs";
 import StudentGallery from "../../components/Student Gallery/StudentGallery";
 import InquiryForm from "../../components/Inquiry/InquiryForm";
+import StudentTestimonials from "../../components/StudentTestimonials/StudentTestimonials";
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
       <TopCoursesSection />
       <WhyChooseUs />
       <StudentGallery />
-      <InquiryForm/>
+      <InquiryForm />
+      <StudentTestimonials/>
     </>
   );
 };
