@@ -4,6 +4,7 @@ import OurStrengths from "../../components/OurStrengths/OurStrengths";
 import HomeAbout from "../../components/HomeAbout/HomeAbout";
 import TopCoursesSection from "../../components/CoursesCircle/TopCoursesSection";
 import WhyChooseUs from "../../components/ChooseUs/WhyChooseUs";
+import StudentGallery from "../../components/Student Gallery/StudentGallery";
 
 const Home = () => {
   return (
@@ -12,7 +13,8 @@ const Home = () => {
       <OurStrengths />
       <HomeAbout />
       <TopCoursesSection />
-      <WhyChooseUs/>
+      <WhyChooseUs />
+      <StudentGallery/>
     </>
   );
 };
