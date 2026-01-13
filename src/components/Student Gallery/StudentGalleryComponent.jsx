@@ -50,7 +50,7 @@ const galleryItems = [
 
 const categories = ["All", "Events", "Workshop", "Sports", "Cultural"];
 
-const StudentGallery = () => {
+const StudentGalleryComponent = () => {
   const [active, setActive] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(null); // { eventIndex, imgIndex }
 
@@ -243,4 +243,4 @@ const StudentGallery = () => {
   );
 };
 
-export default StudentGallery;
+export default StudentGalleryComponent;

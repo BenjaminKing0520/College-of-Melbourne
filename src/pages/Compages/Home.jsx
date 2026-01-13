@@ -4,7 +4,7 @@ import OurStrengths from "../../components/OurStrengths/OurStrengths";
 import HomeAbout from "../../components/HomeAbout/HomeAbout";
 import TopCoursesSection from "../../components/CoursesCircle/TopCoursesSection";
 import WhyChooseUs from "../../components/ChooseUs/WhyChooseUs";
-import StudentGallery from "../../components/Student Gallery/StudentGallery";
+import StudentGallery from "../../components/Student Gallery/StudentGalleryComponent.jsx";
 import InquiryForm from "../../components/Inquiry/InquiryForm";
 import StudentTestimonials from "../../components/StudentTestimonials/StudentTestimonials";
 import Footer from "../../components/Footer/Footer";

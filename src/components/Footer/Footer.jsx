@@ -8,16 +8,14 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { SiX } from "react-icons/si"; // ✅ Correct import for X logo
+import { SiX } from "react-icons/si";
 
 const Footer = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
-  // Scroll-to-top button visibility
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) setShowTopBtn(true);
-      else setShowTopBtn(false);
+      setShowTopBtn(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -31,66 +29,91 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-10">
           {/* ===== Contact Info ===== */}
           <div className="lg:w-2/3 space-y-4">
-            <h3 className="text-white text-lg font-semibold mb-2">
-              Contact Us
-            </h3>
+            <h3 className="text-white text-lg font-semibold">Contact Us</h3>
 
             <p className="flex items-center text-gray-400 text-sm gap-2">
-              <FaMapMarkerAlt className="text-red-500" /> 102, Iqrah Vidyalaya
-              Road, Addalaichenai 13
+              <FaMapMarkerAlt className="text-red-500" />
+              102, Iqrah Vidyalaya Road, Addalaichenai 13
             </p>
+
             <p className="flex items-center text-gray-400 text-sm gap-2">
-              <FaPhoneAlt className="text-red-500" /> +94 76 161 3232 / +94 67
-              432 0069
+              <FaPhoneAlt className="text-red-500" />
+              +94 76 161 3232 / +94 67 432 0069
             </p>
+
             <p className="flex items-center text-gray-400 text-sm gap-2">
-              <FaEnvelope className="text-red-500" />{" "}
+              <FaEnvelope className="text-red-500" />
               info@collegeofmelbourne.edu.lk
             </p>
 
-            {/* Floating Social Icons */}
+            {/* ===== Social Media Links ===== */}
             <div className="flex space-x-3 mt-4">
               <a
-                href="#"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transform hover:-translate-y-1 transition duration-300"
+                href="https://facebook.com/yourpage"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
               >
                 <FaFacebookF />
               </a>
+
               <a
-                href="#"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transform hover:-translate-y-1 transition duration-300"
+                href="https://x.com/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
               >
-                <SiX /> {/* X logo */}
+                <SiX />
               </a>
+
               <a
-                href="#"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transform hover:-translate-y-1 transition duration-300"
+                href="https://instagram.com/yourpage"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
               >
                 <FaInstagram />
               </a>
+
               <a
-                href="#"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transform hover:-translate-y-1 transition duration-300"
+                href="https://linkedin.com/company/yourcompany"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
               >
                 <FaLinkedinIn />
               </a>
             </div>
           </div>
 
-          {/* ===== College Logo ===== */}
+          {/* ===== Logo ===== */}
           <div className="flex justify-center lg:justify-end items-center lg:w-1/3">
-            <img src="/Logo.png" alt="College Logo" className="h-24 w-auto" />
+            <img
+              src="/Logo.png"
+              alt="College Logo"
+              className="h-24 w-auto rounded-full border-2 border-gray-700
+             shadow-lg transition transform duration-300
+             hover:scale-105 hover:shadow-red-500/40"
+            />
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-6 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} College of Melbourne. All rights
-          reserved.
+        {/* ===== Copyright + Developer ===== */}
+        <div className="mt-6 text-center text-gray-500 text-sm space-y-1">
+          <p>
+            &copy; {new Date().getFullYear()} College of Melbourne. All rights
+            reserved.
+          </p>
+          <p className="text-gray-400">
+            Developed by{" "}
+            <span className="text-red-500 font-medium hover:underline cursor-pointer">
+              College of Melbourne IT Team
+            </span>
+          </p>
         </div>
       </div>
 
-      {/* Scroll-to-Top Button */}
+      {/* ===== Scroll To Top ===== */}
       {showTopBtn && (
         <button
           onClick={scrollToTop}

@@ -76,7 +76,7 @@ const HomeAbout = () => {
             viewport={{ once: true, amount: 0.6 }}
           >
             <Link
-              to="/"
+              to="/about-college"
               className="inline-block px-6 py-3 rounded-full font-medium tracking-wide shadow-md transition-all duration-300"
               style={{
                 backgroundColor: "#df1111", // --primary
