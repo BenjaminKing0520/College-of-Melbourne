@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import AboutImg from "../../assets/Images/about1.jpg";
 import OurStrengths from "../../components/OurStrengths/OurStrengths";
 import Footer from "../../components/Footer/Footer";
+import OurMission from "../../components/OurMission/OurMission";
+import OurVision from "../../components/OurVision/OurVision";
+
 
 const AboutCollege = () => {
   return (
@@ -75,6 +78,8 @@ const AboutCollege = () => {
           </div>
         </div>
       </section>
+      <OurMission /> 
+      <OurVision/>
       <Footer/>
     </>
   );
