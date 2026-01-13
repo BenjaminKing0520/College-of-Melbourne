@@ -7,6 +7,7 @@ import WhyChooseUs from "../../components/ChooseUs/WhyChooseUs";
 import StudentGallery from "../../components/Student Gallery/StudentGallery";
 import InquiryForm from "../../components/Inquiry/InquiryForm";
 import StudentTestimonials from "../../components/StudentTestimonials/StudentTestimonials";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -18,7 +19,8 @@ const Home = () => {
       <WhyChooseUs />
       <StudentGallery />
       <InquiryForm />
-      <StudentTestimonials/>
+      <StudentTestimonials />
+      <Footer/>
     </>
   );
 };
