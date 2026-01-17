@@ -5,6 +5,7 @@ import OurStrengths from "../../components/OurStrengths/OurStrengths";
 import Footer from "../../components/Footer/Footer";
 import OurMission from "../../components/OurMission/OurMission";
 import OurVision from "../../components/OurVision/OurVision";
+import HistoryMilestones from "../../components/HistoryMilestones/HistoryMilestones";
 
 
 const AboutCollege = () => {
@@ -79,7 +80,8 @@ const AboutCollege = () => {
         </div>
       </section>
       <OurMission /> 
-      <OurVision/>
+      <OurVision />
+      <HistoryMilestones/>
       <Footer/>
     </>
   );
