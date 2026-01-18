@@ -39,6 +39,7 @@ const Navbar = () => {
   const [courseOpen, setCourseOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Dropdown animation variants
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0 },
@@ -56,7 +57,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 shadow-lg">
       <div className="bg-gradient-to-r from-[#df1111] via-black to-[#df1111] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <motion.div
@@ -64,21 +65,20 @@ const Navbar = () => {
               whileHover={{ scale: 1.05, rotate: 3 }}
               transition={{ type: "spring", stiffness: 500 }}
             >
-              <Link to="/">
-                {/* Mobile logo bigger (h-16), Desktop normal (md:h-12) */}
+              <Link to="/" onClick={() => setMobileOpen(false)}>
                 <img
                   src="/Web Logo white-01.png"
                   alt="College Logo"
-                  className="h-12 md:h-12 w-auto"
+                  className="h-10 sm:h-12 md:h-12 lg:h-14 w-auto"
                 />
               </Link>
             </motion.div>
 
             {/* Desktop Links */}
-            <div className="hidden md:flex space-x-6 items-center font-semibold">
+            <div className="hidden md:flex flex-wrap space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 items-center font-semibold">
               <Link
                 to="/"
-                className="text-white hover:text-gray-300 transition-colors duration-300"
+                className="text-white hover:text-gray-300 transition-colors duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
               >
                 Home
               </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setAboutOpen(!aboutOpen)}
-                  className="text-white hover:text-gray-300 flex items-center gap-1 transition-colors duration-300"
+                  className="text-white hover:text-gray-300 flex items-center gap-1 transition-colors duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
                 >
                   About <Chevron isOpen={aboutOpen} />
                 </button>
@@ -98,7 +98,7 @@ const Navbar = () => {
                       animate="visible"
                       exit="hidden"
                       variants={dropdownVariants}
-                      className="absolute top-full left-0 bg-white text-black rounded shadow-lg mt-2 w-52 overflow-hidden z-20"
+                      className="absolute top-full left-0 bg-white text-black rounded shadow-lg mt-2 w-40 sm:w-48 md:w-52 lg:w-56 overflow-hidden z-20"
                     >
                       {[
                         { name: "About College", path: "/about-college" },
@@ -115,7 +115,8 @@ const Navbar = () => {
                         >
                           <Link
                             to={item.path}
-                            className="block px-4 py-2 hover:bg-[#df1111] hover:text-gray-300 transition-colors duration-300"
+                            onClick={() => setAboutOpen(false)}
+                            className="block px-4 py-2 text-sm sm:text-base md:text-base lg:text-base hover:bg-[#df1111] hover:text-gray-300 transition-colors duration-300"
                           >
                             {item.name}
                           </Link>
@@ -128,7 +129,7 @@ const Navbar = () => {
 
               <Link
                 to="/student-gallery"
-                className="text-white hover:text-gray-300 transition-colors duration-300"
+                className="text-white hover:text-gray-300 transition-colors duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
               >
                 Student Gallery
               </Link>
@@ -137,7 +138,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setCourseOpen(!courseOpen)}
-                  className="text-white hover:text-gray-300 flex items-center gap-1 transition-colors duration-300"
+                  className="text-white hover:text-gray-300 flex items-center gap-1 transition-colors duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
                 >
                   Courses <Chevron isOpen={courseOpen} />
                 </button>
@@ -148,7 +149,7 @@ const Navbar = () => {
                       animate="visible"
                       exit="hidden"
                       variants={dropdownVariants}
-                      className="absolute top-full left-0 bg-white text-black rounded shadow-lg mt-2 w-52 overflow-hidden z-20"
+                      className="absolute top-full left-0 bg-white text-black rounded shadow-lg mt-2 w-40 sm:w-48 md:w-52 lg:w-56 overflow-hidden z-20"
                     >
                       {[
                         "Foundation",
@@ -168,7 +169,8 @@ const Navbar = () => {
                         >
                           <Link
                             to={`/courses/${course.toLowerCase()}`}
-                            className="block px-4 py-2 hover:bg-[#df1111] hover:text-gray-300 transition-colors duration-300"
+                            onClick={() => setCourseOpen(false)}
+                            className="block px-4 py-2 text-sm sm:text-base md:text-base lg:text-base hover:bg-[#df1111] hover:text-gray-300 transition-colors duration-300"
                           >
                             {course}
                           </Link>
@@ -181,14 +183,14 @@ const Navbar = () => {
 
               <Link
                 to="/contact-us"
-                className="text-white hover:text-gray-300 transition-colors duration-300"
+                className="text-white hover:text-gray-300 transition-colors duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
               >
                 Contact Us
               </Link>
 
               <Link
                 to="/apply-now"
-                className="ml-4 px-5 py-2 bg-[#df1111] text-white font-bold rounded-lg hover:bg-black hover:text-gray-300 transition-all duration-300 shadow-md hover:shadow-xl"
+                className="ml-2 sm:ml-4 px-3 sm:px-5 py-2 sm:py-2 md:py-2 bg-[#df1111] text-white font-bold rounded-lg hover:bg-black hover:text-gray-300 transition-all duration-300 shadow-md hover:shadow-xl text-sm sm:text-base md:text-base lg:text-base"
               >
                 Apply Now
               </Link>
@@ -230,6 +232,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
+                    onClick={() => setMobileOpen(false)}
                     className="block px-2 py-2 text-white hover:text-gray-300 transition-colors duration-300"
                   >
                     {item.name}
@@ -269,6 +272,7 @@ const Navbar = () => {
                         >
                           <Link
                             to={item.path}
+                            onClick={() => setMobileOpen(false)}
                             className="block px-2 py-1 hover:bg-black hover:text-gray-300 rounded transition-colors duration-300"
                           >
                             {item.name}
@@ -315,6 +319,7 @@ const Navbar = () => {
                         >
                           <Link
                             to={`/courses/${course.toLowerCase()}`}
+                            onClick={() => setMobileOpen(false)}
                             className="block px-2 py-1 hover:bg-black hover:text-gray-300 rounded transition-colors duration-300"
                           >
                             {course}
@@ -328,6 +333,7 @@ const Navbar = () => {
 
               <Link
                 to="/apply-now"
+                onClick={() => setMobileOpen(false)}
                 className="block px-2 py-2 mt-1 bg-[#df1111] text-white font-bold rounded-lg hover:bg-black hover:text-gray-300 transition-all duration-300 shadow-md"
               >
                 Apply Now
