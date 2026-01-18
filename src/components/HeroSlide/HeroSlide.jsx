@@ -80,7 +80,6 @@ export default function HeroSlider() {
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 300], ["0%", "15%"]);
 
-  // 📞 Contact popup state
   const [showContact, setShowContact] = useState(false);
 
   return (
@@ -95,6 +94,29 @@ export default function HeroSlider() {
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10" />
+
+      {/* Water Bubble Effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+        {[...Array(14)].map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute rounded-full border border-white/40 bg-white/20 shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+            style={{
+              width: `${4 + i * 2}px`,
+              height: `${4 + i * 2}px`,
+              left: `${Math.random() * 100}%`,
+              bottom: `-100px`,
+            }}
+            animate={{ y: [-50, -1000], opacity: [0, 0.6, 0] }}
+            transition={{
+              duration: 6 + i,
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeOut",
+            }}
+          />
+        ))}
+      </div>
 
       {/* Glass Content */}
       <div className="relative z-30 h-full flex items-center px-4 sm:px-8">
@@ -148,7 +170,7 @@ export default function HeroSlider() {
         </div>
       </motion.div>
 
-      {/* 📞 Floating Phone Button */}
+      {/* Phone Button */}
       <motion.button
         onClick={() => setShowContact(!showContact)}
         whileHover={{ scale: 1.1 }}
@@ -158,7 +180,7 @@ export default function HeroSlider() {
         <FaPhoneAlt className="text-white text-xl sm:text-2xl" />
       </motion.button>
 
-      {/* 📅 Contact Popup */}
+      {/* Contact Popup */}
       {showContact && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
