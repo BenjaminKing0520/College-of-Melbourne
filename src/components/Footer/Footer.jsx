@@ -7,6 +7,7 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
+  FaWhatsapp, // ✅ WhatsApp icon
 } from "react-icons/fa";
 import { SiX } from "react-icons/si";
 
@@ -52,7 +53,7 @@ const Footer = () => {
                 href="https://facebook.com/yourpage"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
+                className="p-3 bg-gray-800 rounded-full hover:bg-blue-600 transition transform hover:-translate-y-1"
               >
                 <FaFacebookF />
               </a>
@@ -61,7 +62,7 @@ const Footer = () => {
                 href="https://x.com/yourhandle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
+                className="p-3 bg-gray-800 rounded-full hover:bg-black transition transform hover:-translate-y-1"
               >
                 <SiX />
               </a>
@@ -70,7 +71,7 @@ const Footer = () => {
                 href="https://instagram.com/yourpage"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
+                className="p-3 bg-gray-800 rounded-full hover:bg-pink-500 transition transform hover:-translate-y-1"
               >
                 <FaInstagram />
               </a>
@@ -79,9 +80,19 @@ const Footer = () => {
                 href="https://linkedin.com/company/yourcompany"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-800 rounded-full hover:bg-red-500 transition transform hover:-translate-y-1"
+                className="p-3 bg-gray-800 rounded-full hover:bg-blue-700 transition transform hover:-translate-y-1"
               >
                 <FaLinkedinIn />
+              </a>
+
+              {/* ✅ WhatsApp Icon */}
+              <a
+                href="https://wa.me/94761613232"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-800 rounded-full hover:bg-green-500 transition transform hover:-translate-y-1"
+              >
+                <FaWhatsapp />
               </a>
             </div>
           </div>
@@ -92,13 +103,13 @@ const Footer = () => {
               src="/Logo.png"
               alt="College Logo"
               className="h-24 w-auto rounded-full border-2 border-gray-700
-             shadow-lg transition transform duration-300
-             hover:scale-105 hover:shadow-red-500/40"
+              shadow-lg transition transform duration-300
+              hover:scale-105 hover:shadow-red-500/40"
             />
           </div>
         </div>
 
-        {/* ===== Copyright + Developer ===== */}
+        {/* ===== Copyright ===== */}
         <div className="mt-6 text-center text-gray-500 text-sm space-y-1">
           <p>
             &copy; {new Date().getFullYear()} College of Melbourne. All rights
