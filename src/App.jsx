@@ -4,10 +4,10 @@ import Navbar from "./components/NavCom/Navbar";
 import TopContactBar from "./components/TopContactBar/TopContactBar";
 
 // Pages
-import Home from "./pages/Compages/Home";
-import StudentGallery from "./pages/Compages/StudentGallery";
-import ContactUs from "./pages/Compages/ContactUs";
-import ApplyNow from "./pages/Compages/ApplyNow";
+import Home from "./pages/CommonPages/Home";
+import StudentGallery from "./pages/CommonPages/StudentGallery";
+import ContactUs from "./pages/CommonPages/ContactUs";
+import ApplyNow from "./pages/CommonPages/ApplyNow";
 
 // About
 import AboutCollege from "./pages/About/AboutCollege";
