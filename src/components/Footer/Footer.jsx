@@ -34,7 +34,7 @@ const Footer = () => {
 
             <p className="flex items-center text-gray-400 text-sm gap-2">
               <FaMapMarkerAlt className="text-red-500" />
-              102, Iqrah Vidyalaya Road, Addalaichenai 13
+              102, Iqrah Vidyalaya Road, Addalaichenai-13 , Sri lanka
             </p>
 
             <p className="flex items-center text-gray-400 text-sm gap-2">
@@ -50,7 +50,7 @@ const Footer = () => {
             {/* ===== Social Media Links ===== */}
             <div className="flex space-x-3 mt-4">
               <a
-                href="https://facebook.com/yourpage"
+                href="https://www.facebook.com/share/1G29CoSNkJ/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:bg-blue-600 transition transform hover:-translate-y-1"
@@ -68,7 +68,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://instagram.com/yourpage"
+                href="https://www.instagram.com/collegeofmelbourne?igsh=MTNkZHo4NDM5eW5saQ=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:bg-pink-500 transition transform hover:-translate-y-1"
@@ -77,7 +77,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://linkedin.com/company/yourcompany"
+                href="https://www.linkedin.com/company/college-of-melbourne/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:bg-blue-700 transition transform hover:-translate-y-1"

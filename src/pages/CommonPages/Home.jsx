@@ -2,20 +2,19 @@ import React from "react";
 import HeroSlider from "../../components/HeroSlide/HeroSlide";
 import OurStrengths from "../../components/OurStrengths/OurStrengths";
 import HomeAbout from "../../components/HomeAbout/HomeAbout";
-import TopCoursesSection from "../../components/CoursesCircle/TopCoursesSection";
 import WhyChooseUs from "../../components/ChooseUs/WhyChooseUs";
 import StudentGallery from "../../components/Student Gallery/StudentGalleryComponent.jsx";
 import InquiryForm from "../../components/Inquiry/InquiryForm";
 import StudentTestimonials from "../../components/StudentTestimonials/StudentTestimonials";
 import Footer from "../../components/Footer/Footer";
-
+import SocialMediaButton from "../../components/SocialMediaButton/SocialMediaButton.jsx";
 const Home = () => {
   return (
     <>
       <HeroSlider />
       <OurStrengths />
       <HomeAbout />
-      <TopCoursesSection />
+      <SocialMediaButton/>
       <WhyChooseUs />
       <StudentGallery />
       <InquiryForm />

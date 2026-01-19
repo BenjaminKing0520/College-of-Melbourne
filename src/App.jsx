@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavCom/Navbar";
-import TopContactBar from "./components/TopContactBar/TopContactBar";
+import SocialMediaButton from "./components/SocialMediaButton/SocialMediaButton";
+
 
 // Pages
 import Home from "./pages/CommonPages/Home";
@@ -25,8 +26,8 @@ import Masters from "./pages/Courses/Masters";
 function App() {
   return (
     <Router>
-      <TopContactBar/>
       <Navbar />
+      <SocialMediaButton/>
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
