@@ -27,7 +27,7 @@ const Particles = () => {
       {[...Array(count)].map((_, i) => (
         <motion.span
           key={i}
-          className="absolute w-2 h-2 bg-white/20 rounded-full"
+          className="absolute w-2 h-2 rounded-full bg-[#df1111]/20"
           initial={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
@@ -56,7 +56,6 @@ const StrengthCard = ({ icon: Icon, value, label, suffix }) => {
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
 
-  // detect touch devices
   const isTouch = typeof window !== "undefined" && "ontouchstart" in window;
 
   useEffect(() => {
@@ -69,7 +68,6 @@ const StrengthCard = ({ icon: Icon, value, label, suffix }) => {
     }
   }, [isInView, value]);
 
-  // throttle function for performance
   const throttle = (func, limit = 16) => {
     let inThrottle;
     return (...args) => {
@@ -82,7 +80,7 @@ const StrengthCard = ({ icon: Icon, value, label, suffix }) => {
   };
 
   const handleMouseMove = throttle((e) => {
-    if (isTouch) return; // disable tilt on touch
+    if (isTouch) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -110,8 +108,8 @@ const StrengthCard = ({ icon: Icon, value, label, suffix }) => {
       viewport={{ once: true }}
       className="
         group
-        backdrop-blur-xl bg-white/20
-        border border-white/30
+        backdrop-blur-xl bg-[#F5F5F5]/20
+        border border-[#df1111]/30
         rounded-2xl p-6 text-center
         shadow-lg hover:shadow-2xl
         transition
@@ -132,7 +130,7 @@ const StrengthCard = ({ icon: Icon, value, label, suffix }) => {
       </motion.div>
 
       {/* Counter */}
-      <h3 className="text-4xl font-bold text-white drop-shadow">
+      <h3 className="text-4xl font-bold text-[#353535] drop-shadow">
         <motion.span>{rounded}</motion.span>
         <motion.span
           className="text-[#df1111]"
@@ -143,19 +141,15 @@ const StrengthCard = ({ icon: Icon, value, label, suffix }) => {
         </motion.span>
       </h3>
 
-      <p className="mt-2 text-white/80 font-medium">{label}</p>
+      <p className="mt-2 text-[#353535]/80 font-medium">{label}</p>
     </motion.div>
   );
 };
 
-
- //  Main Section
-
 const OurStrengths = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden bg-[#F5F5F5]">
       {/* Background */}
-      <div className="absolute inset-0 bg-black/70" />
       <Particles />
 
       {/* Content */}
@@ -165,12 +159,12 @@ const OurStrengths = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center text-4xl md:text-5xl font-bold text-white"
+          className="text-center text-4xl md:text-5xl font-bold text-[#353535]"
         >
           Our <span className="text-[#df1111]">Strengths</span>
         </motion.h2>
 
-        <p className="text-center text-white/80 mt-4 max-w-xl mx-auto">
+        <p className="text-center text-[#353535]/80 mt-4 max-w-xl mx-auto">
           Empowering students with excellence, knowledge, and experience.
         </p>
 
