@@ -52,13 +52,14 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* ===== Logo ===== */}
             <Link to="/" onClick={() => setMobileOpen(false)}>
-              <img
+              <motion.img
                 src="/Web Logo white-01.png"
                 alt="College Logo"
-                className="h-10 sm:h-12 w-auto"
+                className="h-12 sm:h-12 w-auto"
+                whileHover={{ scale: 1.1 }} // <-- hover scale effect
+                transition={{ type: "spring", stiffness: 300 }} // smooth spring effect
               />
             </Link>
-
             {/* ===== Desktop Menu ===== */}
             <div className="hidden md:flex items-center space-x-8 font-semibold">
               <Link to="/" className="hover:text-gray-300 text-lg">
