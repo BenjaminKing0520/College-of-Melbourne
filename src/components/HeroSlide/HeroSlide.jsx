@@ -162,7 +162,7 @@ export default function HeroSlider() {
 
       {/* Swipe Indicator */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
@@ -173,8 +173,9 @@ export default function HeroSlider() {
             transition={{ duration: 1.5, repeat: Infinity }}
           />
         </div>
+        {/* Swipe Text */}
+        <p className="mt-2 text-white/80 text-sm font-medium">Swipe</p>
       </motion.div>
-
       {/* Phone Button & Half-Circle Contact Popup */}
       <div className="relative">
         <motion.button
