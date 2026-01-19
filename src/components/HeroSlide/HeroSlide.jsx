@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaPhoneAlt } from "react-icons/fa";
 
@@ -79,7 +84,6 @@ const TrueFocus = ({
 export default function HeroSlider() {
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 300], ["0%", "15%"]);
-
   const [showContact, setShowContact] = useState(false);
 
   return (
@@ -143,6 +147,7 @@ export default function HeroSlider() {
             — Bright Future is Here —
           </p>
 
+          {/* Apply Now Button */}
           <Link to="/apply-now">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -170,43 +175,47 @@ export default function HeroSlider() {
         </div>
       </motion.div>
 
-      {/* Phone Button */}
-      <motion.button
-        onClick={() => setShowContact(!showContact)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-red-600 shadow-xl flex items-center justify-center"
-      >
-        <FaPhoneAlt className="text-white text-xl sm:text-2xl" />
-      </motion.button>
-
-      {/* Contact Popup */}
-      {showContact && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-24 right-6 z-50 bg-white/90 backdrop-blur-lg rounded-xl shadow-xl p-4 w-64"
+      {/* Phone Button & Half-Circle Contact Popup */}
+      <div className="relative">
+        <motion.button
+          onClick={() => setShowContact(!showContact)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-red-600 shadow-xl flex items-center justify-center"
         >
-          <h4 className="font-bold text-gray-800 mb-2">Contact Details</h4>
+          <FaPhoneAlt className="text-white text-xl sm:text-2xl" />
+        </motion.button>
 
-          <p className="text-sm text-gray-700 mb-1">📅 Open: Sat – Thu</p>
-          <p className="text-sm text-gray-700 mb-2">⏰ 9:00 AM – 5:00 PM</p>
-          <p className="text-sm text-gray-700">
-            📞 Phone:{" "}
-            <a href="tel:761613232" className="text-red-600 font-semibold">
-              761613232
-            </a>
-          </p>
+        {/* Half-Circle Contact Popup */}
+        <AnimatePresence>
+          {showContact && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed bottom-6 right-20 z-50 w-48 h-32 rounded-l-full bg-white/90 backdrop-blur-lg shadow-xl p-4 flex flex-col justify-center items-start"
+            >
+              <h4 className="font-bold text-gray-800 mb-1">Contact</h4>
+              <p className="text-sm text-gray-700 mb-1">📅 Sat – Thu</p>
+              <p className="text-sm text-gray-700 mb-1">⏰ 9:00 AM – 5:00 PM</p>
+              <p className="text-sm text-gray-700">
+                📞{" "}
+                <a href="tel:761613232" className="text-red-600 font-semibold">
+                  761613232
+                </a>
+              </p>
 
-          <button
-            onClick={() => setShowContact(false)}
-            className="absolute top-2 right-2 text-gray-500 hover:text-red-600"
-          >
-            ✕
-          </button>
-        </motion.div>
-      )}
+              <button
+                onClick={() => setShowContact(false)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-red-600"
+              >
+                ✕
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
