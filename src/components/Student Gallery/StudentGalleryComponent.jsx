@@ -6,31 +6,66 @@ import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const galleryItems = [
   {
     id: 1,
-    title: "Annual Day Celebration",
-    date: "March 2025",
-    category: "Cultural",
-    images: ["/events/e1.jpg", "/events/e1-2.jpg", "/events/e1-3.jpg"],
+    title: "Outing with English",
+    date: "January 26 2026",
+    category: "Workshop",
+    images: [
+      "/events/English out/Englishout.jpeg",
+      "/events/English out/Englishout1.jpeg",
+      "/events/English out/Englishout2.jpeg",
+      "/events/English out/Englishout3.jpeg",
+      "/events/English out/Englishout4.jpeg",
+    ],
   },
   {
     id: 2,
-    title: "Tech Workshop",
-    date: "February 2025",
-    category: "Workshop",
-    images: ["/events/e2.jpg", "/events/e2-2.jpg"],
+    title: "Cultural Festival",
+    category: "Events",
+    images: [
+      "/events/Cultural Festival/e1-2.jpg",
+      "/events/Cultural Festival/e1-3.jpg",
+      "/events/Cultural Festival/e1.jpg",
+      "/events/Cultural Festival/event1.jpeg",
+      "/events/Cultural Festival/event2.jpeg",
+      "/events/Cultural Festival/IftharM.jpeg",
+      "/events/Cultural Festival/Ifthar1.jpeg",
+      "/events/Cultural Festival/Ifthar2.jpeg",
+      "/events/Cultural Festival/Ifthar3.jpeg",
+      "/events/Cultural Festival/Ifthar4.jpeg",
+      "/events/Cultural Festival/Ifthar5.jpeg",
+      "/events/Cultural Festival/Ifthar6.jpeg",
+      "/events/Cultural Festival/IftharFood.jpeg",
+    ],
   },
   {
     id: 3,
-    title: "Sports Meet",
-    date: "January 2025",
-    category: "Sports",
-    images: ["/events/e3.jpg", "/events/e3-2.jpg"],
+    title: "Annual Trip",
+    date: "August 8 2025",
+    category: "Trip",
+    images: [
+      "/events/Trip/Trip9.jpeg",
+      "/events/Trip/Trip.jpeg",
+      "/events/Trip/Trip1.jpeg",
+      "/events/Trip/Trip2.jpeg",
+      "/events/Trip/Trip3.jpeg",
+      "/events/Trip/Trip4.jpeg",
+      "/events/Trip/Trip5.jpeg",
+      "/events/Trip/Trip6.jpeg",
+      "/events/Trip/Trip7.jpeg",
+    ],
   },
   {
     id: 4,
-    title: "Orientation Program",
-    date: "December 2024",
+    title: "Annual Leaving Ceremony",
+    date: "December 22 2024",
     category: "Events",
-    images: ["/events/e4.jpg"],
+    images: [
+      "/events/AnnualLeaving/Annual1.jpeg",
+      "/events/AnnualLeaving/Annual2.jpeg",
+      "/events/AnnualLeaving/Annual3.jpeg",
+      "/events/AnnualLeaving/Annual4.jpeg",
+      "/events/AnnualLeaving/Annual5.jpeg",
+    ],
   },
   {
     id: 5,
@@ -41,14 +76,19 @@ const galleryItems = [
   },
   {
     id: 6,
-    title: "Cultural Festival",
-    date: "October 2024",
+    title: "Christmas Festival",
+    date: "December 2024",
     category: "Cultural",
-    images: ["/events/e6.jpg", "/events/e6-2.jpg"],
+    images: [
+      "/events/Christmas/Ch1.jpeg",
+      "/events/Christmas/Ch2.jpeg",
+      "/events/Christmas/Ch3.jpeg",
+      "/events/Christmas/Ch4.jpeg",
+    ],
   },
 ];
 
-const categories = ["All", "Events", "Workshop", "Sports", "Cultural"];
+const categories = ["All", "Events", "Workshop", "Trip", "Cultural"];
 
 const StudentGalleryComponent = () => {
   const [active, setActive] = useState("All");
@@ -130,7 +170,7 @@ const StudentGalleryComponent = () => {
         </div>
 
         {/* ===== GRID ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
