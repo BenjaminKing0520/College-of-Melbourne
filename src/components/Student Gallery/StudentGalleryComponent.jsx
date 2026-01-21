@@ -130,6 +130,22 @@ const StudentGalleryComponent = () => {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [currentIndex]);
+  /* ===== AUTO SLIDE ===== */
+  useEffect(() => {
+    if (!currentIndex) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => ({
+        ...prev,
+        imgIndex:
+          prev.imgIndex === filteredItems[prev.eventIndex].images.length - 1
+            ? 0
+            : prev.imgIndex + 1,
+      }));
+    }, 2000); // 2 seconds
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50">
