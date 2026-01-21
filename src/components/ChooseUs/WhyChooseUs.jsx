@@ -70,7 +70,10 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+    <section
+      className="py-20 overflow-hidden"
+      style={{ backgroundColor: "#F5F5F5" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* ================= HEADING ================= */}
         <motion.div
