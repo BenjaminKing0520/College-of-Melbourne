@@ -62,7 +62,6 @@ const galleryItems = [
     images: [
       "/events/AnnualLeaving/Annual1.jpeg",
       "/events/AnnualLeaving/Annual2.jpeg",
-      "/events/AnnualLeaving/Annual3.jpeg",
       "/events/AnnualLeaving/Annual4.jpeg",
       "/events/AnnualLeaving/Annual5.jpeg",
     ],
