@@ -44,7 +44,7 @@ const Footer = () => {
 
             <p className="flex items-center text-gray-400 text-sm gap-2">
               <FaEnvelope className="text-red-500" />
-              info@collegeofmelbourne.edu.lk
+              info.collegeofmelbourne@gmail.com
             </p>
 
             {/* ===== Social Media Links ===== */}
